@@ -19,8 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:        
-        runs-on: [ubuntu-22.04, macos-latest, windows-latest ]
-        python-version: [ 3.6, 3.7, 3.8, 3.9, "3.11" ]
+        runs-on: [ubuntu-22.04, macos-latest, macos-14, macos-13, windows-latest ]
+        python-version: [ 3.7, 3.8, 3.9, "3.11", "3.10" ]
         exclude:
           - runs-on: macos-latest
             python-version: "3.8"
@@ -43,5 +43,7 @@ jobs:
         
     - name: Tests
       run: |
+        python -V
+        pip list
         wormpose -v
         

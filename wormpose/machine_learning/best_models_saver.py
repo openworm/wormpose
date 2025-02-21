@@ -39,7 +39,7 @@ class _BestModelsHeap(object):
         return [-x[0] for x in sorted_queue], [x[1] for x in sorted_queue]
 
 
-_NAME_PATTERN = "model.{epoch:02d}-{val_loss:.2f}.hdf5"
+_NAME_PATTERN = "model.{epoch:02d}-{val_loss:.2f}.keras"
 
 
 class BestModels(tf.keras.callbacks.Callback):

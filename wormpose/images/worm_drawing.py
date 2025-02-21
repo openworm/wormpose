@@ -20,10 +20,10 @@ def make_draw_worm_body(body_color: int = 255) -> Callable:
 
     #  preallocates some internal data structures
     polygon = [[]] * 4
-    orthogonal = np.empty((2,), dtype=np.float)
+    orthogonal = np.empty((2,), dtype=np.float64)
     vertices_todraw = np.empty((4, 2), dtype=int)
-    cur_joint = np.empty(2, dtype=np.float)
-    prev_joint = np.empty(2, dtype=np.float)
+    cur_joint = np.empty(2, dtype=np.float64)
+    prev_joint = np.empty(2, dtype=np.float64)
 
     def _draw_extremity(img, center, radius):
         cv2.circle(img, (int(center[0]), int(center[1])), int(radius), body_color, -1, 8)

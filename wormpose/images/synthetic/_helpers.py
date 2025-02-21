@@ -86,7 +86,7 @@ class PatchDrawing(object):
 
         transform = cv2.getAffineTransform(target_coords[:3], template_coords[:3])
         source_image_mask.fill(0)
-        cv2.fillConvexPoly(source_image_mask, target_coords.astype(np.int), 255)
+        cv2.fillConvexPoly(source_image_mask, target_coords.astype(int), 255)
         masked_frame = cv2.bitwise_and(recentered_frame, source_image_mask)
         cv2.warpAffine(
             masked_frame,
@@ -97,7 +97,7 @@ class PatchDrawing(object):
             dst=self.target_image,
         )
         self.target_image_mask.fill(0)
-        cv2.fillConvexPoly(self.target_image_mask, template_coords.astype(np.int), 255)
+        cv2.fillConvexPoly(self.target_image_mask, template_coords.astype(int), 255)
         cv2.bitwise_and(self.target_image, self.target_image_mask, dst=self.target_image)
 
         np.greater(self.target_image, 0, out=self.cur_alpha)
